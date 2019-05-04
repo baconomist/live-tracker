@@ -29,3 +29,11 @@ body.dark .button {
 body.light .button{
     background-image: url("moon.png");
 }
+
+#map
+{
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 100%;
+}

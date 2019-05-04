@@ -2,7 +2,10 @@ import json
 
 from flask import Flask, request
 
+from server.src.database import Database
+
 app = Flask(__name__)
+db = None
 
 
 @app.route("/receive", methods=["POST"])
@@ -22,4 +25,5 @@ def barcode():
 
 
 if __name__ == "__main__":
-    app.run("192.168.2.249", 80, debug=True)
+    db = Database()
+    app.run("127.0.0.1", 4200, debug=True)
