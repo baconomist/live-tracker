@@ -1,70 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <title>LiveTracker™</title>
-    <link rel="icon" href="search.png">
-    <link rel="stylesheet" type="text/css" href="stylesheet.css">
+    <link rel="icon" href="static/search.png">
+    <link rel="stylesheet" type="text/css" href="static/stylesheet.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 </head>
-<body class="light">
-<style>
-    .button {
-        border: none;
-        color: white;
-        padding: 2% 2%;
-        text-align: center;
-        text-decoration: none;
-        display: inline-block;
-        font-size: 16px;
-        margin: 2px 90%;
-        cursor: pointer;
-        background-size: contain;
-    }
-</style>
-<btn class="button"></btn>
 
-<style>
-    img {
-        display: block;
-        margin-left: auto;
-        margin-right: auto;
-        margin-top: 10%;
-    }
-</style>
-<img src="logo-cropped.png">
-<style>
-    input[type=text] {
-        width: 500px;
-        box-sizing: border-box;
-        border: 2px solid #ccc;
-        border-radius: 10px;
-        font-size: 16px;
-        padding: 12px 20px 12px 20px;
-        margin-left: auto;
-        margin-right: auto;
-        margin-top: 50px;
-        display: block;
-    }
-</style>
+<body class="light">
+
+<div align="right">
+    <label class="switch" style="margin-top: .5%">
+        <p class="darkmode" style="margin-right: 200%"><b>dark mode</b></p>
+     <input type="checkbox">
+        <span class="slider round"></span>
+    </label>
+    <a href="#" class="btn btn-info btn-lg" onclick="tts()" style="margin-left: 91%; position: relative; margin-top: -1%">
+        <span class="glyphicon glyphicon-volume-up"></span> read text
+    </a>
+</div>
+
+<img src="static/logo-cropped.png">
+
 <form name="Tnumber" method="get">
-    <input type="text" name="search" placeholder="    Input tracking numbers separated by spaces and hit Enter" maxlength="1000">
+    <input type="text" name="search" placeholder="    Input tracking numbers separated by spaces and hit Enter">
 </form>
-<script>
-    let x = $(".button");
-    let isDarkMode = false;
-    x.on("click", function (e) {
-        if (!isDarkMode){
-            $("body").addClass("dark");
-            $("body").removeClass("light");
-        }
-        else
-        {
-            $("body").removeClass("dark");
-            $("body").addClass("light");
-        }
-        isDarkMode = !isDarkMode;
-    })
-</script>
+
+<script src="static/tts.js"></script>
+<script src="static/darkmode.js"></script>
 </body>
 </html>
