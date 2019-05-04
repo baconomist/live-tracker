@@ -1,3 +1,5 @@
+import json
+
 from flask import Flask, request
 
 app = Flask(__name__)
@@ -5,9 +7,9 @@ app = Flask(__name__)
 
 @app.route("/receive", methods=["POST"])
 def receive_gps_data():
-    request_data = request.data.decode("ascii")
-    lat = float(request_data.split(",")[0])
-    long = float(request_data.split(",")[1])
+    request_data = json.loads(request.data.decode("ascii"))
+    lat = float(request_data["gps_data"].split(",")[0])
+    long = float(request_data["gps_data"].split(",")[1])
     print(lat, long)
     return ""
 
@@ -20,4 +22,4 @@ def barcode():
 
 
 if __name__ == "__main__":
-    app.run("192.168.2.235", 4200, debug=True)
+    app.run("192.168.2.249", 80, debug=True)
