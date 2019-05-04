@@ -228,12 +228,12 @@ public class MainActivity extends Activity implements View.OnClickListener {
         else if (!barcodes.contains(barcode.displayValue))
             barcodes.add(barcode.displayValue);
 
-        ((AudioManager) getSystemService(Context.AUDIO_SERVICE)).setStreamVolume(AudioManager.STREAM_MUSIC, 100, 1);
+       /* ((AudioManager) getSystemService(Context.AUDIO_SERVICE)).setStreamVolume(AudioManager.STREAM_MUSIC, 100, 1);
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             ((Vibrator) getSystemService(Context.VIBRATOR_SERVICE)).vibrate(VibrationEffect.createOneShot(250, VibrationEffect.DEFAULT_AMPLITUDE));
         } else {
             ((Vibrator) getSystemService(Context.VIBRATOR_SERVICE)).vibrate(250);
         }
-        mediaPlayer.start();
+        mediaPlayer.start();*/
     }
 }
