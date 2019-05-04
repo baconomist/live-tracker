@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>LiveTracker™</title>
+    <link rel="icon" href="search.png">
+    <link rel="stylesheet" type="text/css" href="stylesheet.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+</head>
+<body class="light">
+<style>
+    .button {
+        border: none;
+        color: white;
+        padding: 2% 2%;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+        margin: 2px 90%;
+        cursor: pointer;
+        background-size: contain;
+    }
+</style>
+<btn class="button"></btn>
+
+<style>
+    img {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 10%;
+    }
+</style>
+<img src="logo-cropped.png">
+<style>
+    input[type=text] {
+        width: 500px;
+        box-sizing: border-box;
+        border: 2px solid #ccc;
+        border-radius: 10px;
+        font-size: 16px;
+        padding: 12px 20px 12px 20px;
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 50px;
+        display: block;
+    }
+</style>
+<form name="Tnumber" method="get">
+    <input type="text" name="search" placeholder="    Input tracking numbers separated by spaces and hit Enter" maxlength="1000">
+</form>
+<script>
+    let x = $(".button");
+    let isDarkMode = false;
+    x.on("click", function (e) {
+        if (!isDarkMode){
+            $("body").addClass("dark");
+            $("body").removeClass("light");
+        }
+        else
+        {
+            $("body").removeClass("dark");
+            $("body").addClass("light");
+        }
+        isDarkMode = !isDarkMode;
+    })
+</script>
+</body>
+</html>
