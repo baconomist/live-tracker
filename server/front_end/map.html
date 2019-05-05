@@ -46,6 +46,15 @@
     </a>
 </div>
 
+<script>
+
+    document.body.className = localStorage.getItem("value");
+    $("body").addClass("there");
+    if (document.body.className.includes("dark")) {
+        document.getElementById("darkmodetoggle2").click()
+    }
+
+</script>
 
 
 <form name="Tnumber" method="get">
@@ -62,15 +71,7 @@
 <script src="static/tts.js"></script>
 <script src="static/darkmode.js"></script>
 
-<script>
 
-    document.body.className = localStorage.getItem("value");
-    $("body").addClass("there");
-    if (document.body.className.includes("dark")) {
-        document.getElementById("darkmodetoggle2").click()
-    }
-
-</script>
 
 </body>
 </html>

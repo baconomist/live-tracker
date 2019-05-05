@@ -20,5 +20,3 @@ x.on("click", function (e) {
     }
     isDarkMode = !isDarkMode;
 })
-
-
