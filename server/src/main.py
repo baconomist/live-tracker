@@ -1,12 +1,45 @@
 import json
 
-from flask import Flask, request
+import math
+from flask import Flask, request, jsonify, render_template
 
 from server.src.database import Database
 from server.src.datatypes.vehicle import Vehicle, VEHICLE_TYPE
 
-app = Flask(__name__)
+app = Flask(__name__, static_folder="../front_end/static", template_folder="../front_end/")
 db = None
+
+
+@app.route("/")
+@app.route("/index.html")
+def index():
+    return render_template("index.html")
+
+
+@app.route("/package-tracker")
+@app.route("/package-tracker.html")
+def package_tracker():
+    return render_template("map.html")
+
+
+def remove_extra_locations(locations):
+    h = 0
+    locations_to_remove = []
+    for i in range(len(locations))[1::]:
+        dx = locations[i][0] - locations[i - 1][0]
+        dy = locations[i][1] - locations[i - 1][1]
+        h += math.sqrt(dx*dx + dy*dy)
+        # If h >= 50km
+        if h*111.699 >= 50:
+            h = 0
+            continue
+        locations_to_remove.append(locations[i])
+
+    for loc in locations_to_remove:
+        locations.remove(loc)
+
+    return locations
+
 
 
 @app.route("/receive", methods=["POST"])
@@ -22,6 +55,9 @@ def receive_gps_data():
         vehicle = Vehicle.init(vehicle_uid, VEHICLE_TYPE.TRUCK.value)
 
     locations = json.loads(vehicle.locations)
+
+    locations = remove_extra_locations(locations)
+
     locations.append([lat, long])
     vehicle.locations = json.dumps(locations)
 
@@ -64,14 +100,18 @@ def barcode():
     return ""
 
 
-@app.route("/get_package_location")
+@app.route("/get_package", methods=["POST"])
 def get_package_location():
-    package_number = request.get_json()["package_number"]
-
+    json_data = request.get_json(force=True)
+    package_number = json_data["package_number"]
+    locs = []
     for vehicle in Vehicle.all():
         for package in json.loads(vehicle.packages):
             if package == package_number:
-                return json.loads(vehicle.locations)
+                locs = json.loads(vehicle.locations)
+
+    return jsonify(status=True, data=dict(number=package_number, locations=locs))
+
 
 if __name__ == "__main__":
     db = Database()

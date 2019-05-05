@@ -9,21 +9,19 @@
     <link href="static/stylesheet.css" rel="stylesheet">
 </head>
 <body>
-<div class="package" id="package" style="width: 35vw; height: 35vh; position: relative; display: inline-block; border: 5px solid #767D92">
 
-    <div class='map' id="map" style="position: relative"></div>
+<div class="package" id="0">
 
-    <div style="position:relative; margin-top: 1%">
+    <div class='package-map' id="map" style="position: relative"></div>
 
-        <input type="image" src="static/trash.png" onclick="removePackage()" style="width: 10%; display: inline-block; position: relative">
+    <div class="package-info">
 
-        <p style="display: inline-block; position: relative">Status: </p>
+        <p class="package-status">Status: <em class="transit">In Transit</em></p>
 
-        <p style="color: blue; display: inline-block; position: relative">In transit</p>
+        <p class="package-number">Tracking number: <em style="font-weight: bold">aaa</em></p>
 
-        <p style=" display: inline-block; position: relative; margin-left: 20%">Tracking number:</p>
+        <input class="delete-package-btn" type="image" src="static/trash.png" onclick="removePackage()">
 
-        <p style="display: inline-block; position: relative; margin-left: 1%">LL565365763CN</p>
     </div>
 
 </div>
@@ -31,10 +29,11 @@
 <!-- SCRIPTS -->
 <!-- LIB -->
 <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.54.0/mapbox-gl.js'></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
 
 <!-- SRC -->
 <script src="static/map.js"></script>
-<script src="static/removemap.js"></script>
+<script src="static/package_handler.js"></script>
 
 </body>
 </html>

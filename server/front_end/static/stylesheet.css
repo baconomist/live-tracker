@@ -1,19 +1,21 @@
 body.dark {
     background-color: #353C51;
 }
+
 body.dark input::placeholder {
     color: black;
     opacity: 1; /* Firefox */
 }
+
 body.dark input {
-    background-color:  #767D92;
+    background-color: #767D92;
 }
 
 body.light {
     background-color: white;
 }
 
-body.light::placeholder{
+body.light::placeholder {
     color: grey;
     opacity: 1; /* Firefox */
 }
@@ -26,11 +28,11 @@ body.dark .button {
     background-image: url("sun.png");
 }
 
-body.light .button{
+body.light .button {
     background-image: url("moon.png");
 }
 
-body.dark p.darkmode{
+body.dark p.darkmode {
     color: #2196F3;
 }
 
@@ -45,13 +47,13 @@ p {
     font-size: 1vw;
 }
 
- .switch {
-     position: relative;
-     margin-left: 85%;
-     display: inline-block;
-     width: 60px;
-     height: 34px;
- }
+.switch {
+    position: relative;
+    margin-left: 85%;
+    display: inline-block;
+    width: 60px;
+    height: 34px;
+}
 
 .switch input {
     opacity: 0;
@@ -106,30 +108,68 @@ input:checked + .slider:before {
     border-radius: 50%;
 }
 
- img {
-     display: block;
-     margin-left: auto;
-     margin-right: auto;
-     margin-top: 10%;
- }
+img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 10%;
+}
 
- input[type=text] {
-     width: 31%;
-     box-sizing: border-box;
-     border: 2px solid #ccc;
-     border-radius: 10px;
-     font-size: 16px;
-     padding: 12px 20px 12px 20px;
-     margin-left: auto;
-     margin-right: auto;
-     margin-top: 50px;
-     display: block;
- }
+input[type=text] {
+    width: 31%;
+    box-sizing: border-box;
+    border: 2px solid #ccc;
+    border-radius: 10px;
+    font-size: 16px;
+    padding: 12px 20px 12px 20px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 50px;
+    display: block;
+}
 
- .map
- {
-     position: relative;
-     height: 75%;
- }
+.package-map {
+    position: relative;
+    height: 75%;
+}
 
 
+.package {
+    width: 35vw;
+    height: 35vh;
+    position: relative;
+    display: inline-block;
+    border: 5px solid #767D92
+}
+
+.package-info {
+    position: relative;
+    margin-top: 1%
+}
+
+.delete-package-btn {
+    width: 10%;
+    margin-left: 10%;
+    position: relative;
+}
+
+.package-status {
+    display: inline-block;
+    position: relative
+}
+
+.package-status em.transit {
+    color: blue;
+    font-weight: bold;
+}
+
+.package-status em.delivered {
+    color: green;
+    font-weight: bold;
+}
+
+.package-number {
+    display: inline-block;
+    position: relative;
+    margin-left: 5%
+}

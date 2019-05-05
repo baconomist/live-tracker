@@ -2,7 +2,7 @@ import json
 import requests
 import time
 
-data = {"gps_data": "43.55115,-79.664213", "vehicle": "truck1"}
+data = {"gps_data": "10.55115,79.664213", "vehicle": "TRUCK1"}
 
 while True:
     try:
