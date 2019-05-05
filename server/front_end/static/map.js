@@ -2,12 +2,14 @@ mapboxgl.accessToken = 'pk.eyJ1IjoidGhldG94aWNraWxsZXIiLCJhIjoiY2p2M3o4YjJoMmtvY
 let map = new mapboxgl.Map({
     container: 'map',
     style: 'mapbox://styles/mapbox/dark-v10',
-    center: [0, 0],
+    center: [-79.66, 43.55],
     zoom: 0.5
 });
 
-let start = [0, 0];
-let goto = [90, 50];
+map.addControl(new mapboxgl.FullscreenControl());
+
+let start = [-79.66, 43.55];
+let goto = [0, 0];
 
 // Create a GeoJSON source with an empty lineString.
 let geojson = {
@@ -46,7 +48,7 @@ map.on('load', function ()
             'line-join': 'round'
         },
         'paint': {
-            'line-color': '#0075ff',
+            'line-color': '#79fb2a',
             'line-width': 5,
             'line-opacity': .8
         }
@@ -107,4 +109,5 @@ map.on('load', function ()
         // Request the next frame of the animation.
         animation = requestAnimationFrame(animateLine);
     }
+
 });

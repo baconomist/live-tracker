@@ -4,14 +4,29 @@
     <meta charset='utf-8'/>
     <title>Animate a line</title>
     <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no'/>
-
+    <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.54.0/mapbox-gl.js'></script>
     <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.54.0/mapbox-gl.css' rel='stylesheet'/>
     <link href="static/stylesheet.css" rel="stylesheet">
 </head>
 <body>
+<div class="package" id="package" style="width: 35vw; height: 35vh; position: relative; display: inline-block; border: 5px solid #767D92">
 
-<div id='map'></div>
-<button id='pause'></button>
+    <div class='map' id="map" style="position: relative"></div>
+
+    <div style="position:relative; margin-top: 1%">
+
+        <input type="image" src="static/trash.png" onclick="removePackage()" style="width: 10%; display: inline-block; position: relative">
+
+        <p style="display: inline-block; position: relative">Status: </p>
+
+        <p style="color: blue; display: inline-block; position: relative">In transit</p>
+
+        <p style=" display: inline-block; position: relative; margin-left: 20%">Tracking number:</p>
+
+        <p style="display: inline-block; position: relative; margin-left: 1%">LL565365763CN</p>
+    </div>
+
+</div>
 
 <!-- SCRIPTS -->
 <!-- LIB -->
@@ -19,6 +34,7 @@
 
 <!-- SRC -->
 <script src="static/map.js"></script>
+<script src="static/removemap.js"></script>
 
 </body>
 </html>
