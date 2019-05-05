@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<!--suppress ALL -->
 <html lang="en">
 
 <head>
@@ -10,26 +11,56 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 </head>
 
-<body class="light">
+<body>
 
 <div align="right">
     <label class="switch" style="margin-top: .5%">
         <p class="darkmode" style="margin-right: 200%"><b>dark mode</b></p>
-     <input type="checkbox">
-        <span class="slider round"></span>
+     <input type="checkbox" id="darkmodetoggle">
+        <span class="slider round" ></span>
     </label>
     <a href="#" class="btn btn-info btn-lg" onclick="tts()" style="margin-left: 91%; position: relative; margin-top: -1%">
         <span class="glyphicon glyphicon-volume-up"></span> read text
     </a>
 </div>
 
+<script>
+
+    document.body.className = localStorage.getItem("value");
+    if (document.body.className == "dark") {
+        document.getElementById("darkmodetoggle").click()
+    }
+
+</script>
+
 <img src="static/logo-cropped.png">
 
-<form name="Tnumber" method="get">
-    <input type="text" name="search" placeholder="    Input tracking numbers separated by spaces and hit Enter">
-</form>
+<input type="text" id="search" placeholder="    Input tracking numbers separated by spaces and hit Enter">
 
+<script src="static/init.js"></script>
 <script src="static/tts.js"></script>
 <script src="static/darkmode.js"></script>
+<script src="static/cookies.js"></script>
+
+<script>
+    $("#search").keyup(function (e)
+    {
+        if(e.keyCode != 13) return; // Only on enter pressed
+
+        $.post(server_ip + "/get_package", JSON.stringify({"package_number": $("#search").val()}), function (response)
+        {
+            if(response["status"])
+            {
+                let packages = JSON.parse(getCookie("packages", JSON.stringify([])));
+                if(!packages.includes($("#search").val()))
+                    packages.push($("#search").val());
+
+                setCookie("packages", JSON.stringify(packages), 99999999999);
+                window.location.href = server_ip + "/package-tracker";
+            }
+        });
+    });
+</script>
+
 </body>
 </html>

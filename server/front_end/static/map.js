@@ -90,7 +90,7 @@ function create_default_map_layer(map, geojson, line_color)
     });
     return "line-animation";
 }
-
+/*
 var map = create_map("map", [0, 0], 0.5);
 
 map.on('load', function ()
@@ -130,4 +130,4 @@ map.on('load', function ()
     animate_points(map, start, [0, 0], 1, geojson, "line-animation", function(){});
 
     //map.setStyle(MAP_THEMES.dark);
-});
+});*/

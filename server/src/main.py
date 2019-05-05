@@ -104,13 +104,18 @@ def barcode():
 def get_package_location():
     json_data = request.get_json(force=True)
     package_number = json_data["package_number"]
+
     locs = []
+    status = False
     for vehicle in Vehicle.all():
         for package in json.loads(vehicle.packages):
             if package == package_number:
+                status = True
                 locs = json.loads(vehicle.locations)
 
-    return jsonify(status=True, data=dict(number=package_number, locations=locs))
+    print(package_number, locs)
+
+    return jsonify(status=status, data=dict(number=package_number, locations=locs))
 
 
 if __name__ == "__main__":
