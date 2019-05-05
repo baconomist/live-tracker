@@ -15,7 +15,8 @@ body.light {
     background-color: white;
 }
 
-body.light::placeholder {
+
+body.light::placeholder{
     color: grey;
     opacity: 1; /* Firefox */
 }
@@ -36,24 +37,54 @@ body.dark p.darkmode {
     color: #2196F3;
 }
 
+body.dark p {
+    color: #79fb2a;
+    font-family: "HoloLens MDL2 Assets", Helvetica, sans-serif;
+    font-size: 1vw;
+}
+
 p.darkmode {
     font-family: "HoloLens MDL2 Assets", Helvetica, sans-serif;
     font-size: 15px;
     margin-left: 84.5%;
 }
 
-p {
+body.light p {
     font-family: "HoloLens MDL2 Assets", Helvetica, sans-serif;
     font-size: 1vw;
 }
 
-.switch {
-    position: relative;
-    margin-left: 85%;
-    display: inline-block;
-    width: 60px;
-    height: 34px;
+body.dark .package {
+    border: 5px solid #2196F3
 }
+
+body.light .package {
+    border: 5px solid #767D92
+}
+
+body.light h1 {
+    color: black;
+}
+
+body.dark h1 {
+    color: #79fb2a;
+}
+
+body.gone .buttonGroup {
+    margin-top: .4%;
+}
+
+body.there .buttonGroup {
+    margin-top: -17%;
+}
+
+ .switch {
+     position: relative;
+     margin-left: 85%;
+     display: inline-block;
+     width: 60px;
+     height: 34px;
+ }
 
 .switch input {
     opacity: 0;

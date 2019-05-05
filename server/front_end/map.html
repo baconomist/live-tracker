@@ -2,13 +2,21 @@
 <html>
 <head>
     <meta charset='utf-8'/>
-    <title>Animate a line</title>
+    <title>LiveTracker™</title>
+    <link rel="icon" href="static/search.png">
     <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no'/>
     <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.54.0/mapbox-gl.js'></script>
     <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.54.0/mapbox-gl.css' rel='stylesheet'/>
     <link href="static/stylesheet.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
 </head>
-<body>
+
+<script>$("body").addClass("there")</script>
+
+<body class="light there">
+
+    <div class='map' id="map" style="position: relative"></div>
 
 <div class="package" id="0">
 
@@ -26,6 +34,17 @@
 
 </div>
 
+<div align="right" class="buttonGroup">
+    <label class="switch">
+        <h1 class="darkmode" style="margin-right: 200%; font-size: 15px; margin-top: -1%"><b>dark mode</b></h1>
+        <input type="checkbox">
+        <span class="slider round"></span>
+    </label>
+    <a href="#" class="btn btn-info btn-lg" onclick="ttsMap()" style="margin-left: 10%; position: relative; margin-top: -1%">
+        <span class="glyphicon glyphicon-volume-up"></span> read text
+    </a>
+</div>
+
 <!-- SCRIPTS -->
 <!-- LIB -->
 <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.54.0/mapbox-gl.js'></script>
@@ -33,7 +52,9 @@
 
 <!-- SRC -->
 <script src="static/map.js"></script>
-<script src="static/package_handler.js"></script>
+<script src="static/removemap.js"></script>
+<script src="static/tts.js"></script>
+<script src="static/darkmode.js"></script>
 
 </body>
 </html>
