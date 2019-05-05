@@ -40,6 +40,11 @@ p.darkmode {
     margin-left: 84.5%;
 }
 
+p {
+    font-family: "HoloLens MDL2 Assets", Helvetica, sans-serif;
+    font-size: 1vw;
+}
+
  .switch {
      position: relative;
      margin-left: 85%;
@@ -120,3 +125,11 @@ input:checked + .slider:before {
      margin-top: 50px;
      display: block;
  }
+
+ .map
+ {
+     position: relative;
+     height: 75%;
+ }
+
+
