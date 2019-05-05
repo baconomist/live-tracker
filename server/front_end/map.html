@@ -34,6 +34,15 @@
 <input type="text" id="search" placeholder="    Input tracking numbers separated by spaces and hit Enter"
        style="margin-top: 40%">
 
+<script>
+    $("body").addClass("there");
+    document.body.className = localStorage.getItem("value");
+
+    if (document.body.className.includes("dark")) {
+        document.getElementById("darkmodetoggle2").click()
+    }
+
+</script>
 <!-- SCRIPTS -->
 <!-- LIB -->
 <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.54.0/mapbox-gl.js'></script>
@@ -47,44 +56,7 @@
 <script src="static/tts.js"></script>
 <script src="static/darkmode.js"></script>
 
-<script>
 
-    document.body.className = localStorage.getItem("value");
-    $("body").addClass("there");
-    if (document.body.className.includes("dark"))
-    {
-        document.getElementById("darkmodetoggle2").click()
-    }
-
-</script>
-
-<script>
-    $("#search").keyup(function (e)
-    {
-
-        if(e.keyCode != 13) return;
-
-        $.post(server_ip + "/get_package", JSON.stringify({"package_number": $("#search").val()}), function (response)
-        {
-            if(response["status"])
-            {
-                let packages = JSON.parse(getCookie("packages", JSON.stringify([])));
-                if(!packages.includes($("#search").val()))
-                {
-                    packages.push($("#search").val());
-                    get_package($("#search").val());
-                    console.log(packages)
-                }
-
-                setCookie("packages", JSON.stringify(packages), 99999999999);
-            }
-            else
-            {
-                console.log("PACKAGE NOT FOUND!");
-            }
-        });
-    });
-</script>
 
 </body>
 </html>
