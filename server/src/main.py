@@ -3,8 +3,8 @@ import json
 import math
 from flask import Flask, request, jsonify, render_template
 
-from server.src.database import Database
-from server.src.datatypes.vehicle import Vehicle, VEHICLE_TYPE
+from database import Database
+from datatypes.vehicle import Vehicle, VEHICLE_TYPE
 
 app = Flask(__name__, static_folder="../front_end/static", template_folder="../front_end/")
 db = None

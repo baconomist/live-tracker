@@ -5,7 +5,7 @@ from orator.schema import Blueprint
 
 import os
 
-from server.src.datatypes.vehicle import Vehicle
+from datatypes.vehicle import Vehicle
 
 _databaseDir = os.path.join(os.path.dirname(__file__), "..", "..", "data")
 _databaseLocation = os.path.join(_databaseDir, "database.db")
