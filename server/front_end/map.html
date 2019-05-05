@@ -16,7 +16,7 @@
 
 <body class="light there">
 
-<div class="package" id="package" style="width: 35vw; height: 35vh; position: relative; display: inline-block">
+<div class="package" id="package" style="width: 35vw; height: 35vh; position: relative; display: inline-block; margin-left: 32.5vw">
 
     <div class='map' id="map" style="position: relative"></div>
 
@@ -38,13 +38,19 @@
 <div align="right" class="buttonGroup">
     <label class="switch">
         <h1 class="darkmode" style="margin-right: 200%; font-size: 15px; margin-top: -1%"><b>dark mode</b></h1>
-        <input type="checkbox">
+        <input type="checkbox" id="darkmodetoggle2">
         <span class="slider round"></span>
     </label>
     <a href="#" class="btn btn-info btn-lg" onclick="ttsMap()" style="margin-left: 10%; position: relative; margin-top: -1%">
         <span class="glyphicon glyphicon-volume-up"></span> read text
     </a>
 </div>
+
+
+
+<form name="Tnumber" method="get">
+    <input type="text" name="search" placeholder="    Input tracking numbers separated by spaces and hit Enter" style="margin-top: 40%">
+</form>
 
 <!-- SCRIPTS -->
 <!-- LIB -->
@@ -55,6 +61,16 @@
 <script src="static/removemap.js"></script>
 <script src="static/tts.js"></script>
 <script src="static/darkmode.js"></script>
+
+<script>
+
+    document.body.className = localStorage.getItem("value");
+    $("body").addClass("there");
+    if (document.body.className.includes("dark")) {
+        document.getElementById("darkmodetoggle2").click()
+    }
+
+</script>
 
 </body>
 </html>

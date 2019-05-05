@@ -53,11 +53,13 @@ body.light p {
 }
 
 body.dark .package {
-    border: 5px solid #2196F3
+    border: 5px solid #2196F3;
+    border-radius: 2%
 }
 
 body.light .package {
-    border: 5px solid #767D92
+    border: 5px solid #767D92;
+    border-radius: 2%;
 }
 
 body.light h1 {
